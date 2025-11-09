@@ -1,6 +1,6 @@
 <?php
 
-define('DB_HOST', '	fdb1034.awardspace.net');
+define('DB_HOST', 'fdb1034.awardspace.net');
 define('DB_USER', '4704687_webdevcourse');
 define('DB_PASS', '@Codewithmukhiteee_WEBDEVCOURSE1');
 define('DB_NAME', '4704687_webdevcourse');
