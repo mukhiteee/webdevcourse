@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lecture Details | CodeWithMukhiteee</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #000096;
+      --secondary: #00ffd0;
+      --background: #f8f9fa;
+      --quiz-bg: #fff;
+      --quiz-shadow: 0 8px 24px rgba(20, 20, 128, 0.08);
+    }
+    html, body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--background);
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 940px;
+      margin: 42px auto;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(0,0,138,0.07);
+      padding: 32px 22px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 44px;
+    }
+    .lecture-main {
+      flex: 2;
+      min-width: 295px;
+    }
+    .lecture-header {
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 21px;
+    }
+    .section-icon {
+      font-size: 1.7em;
+      background: var(--secondary);
+      color: #222;
+      border-radius: 12px;
+      padding: 7px 14px;
+      margin-right: 9px;
+      font-weight: bold;
+      box-shadow: 0 1px 8px rgba(0,255,208,0.07);
+    }
+    .lecture-title {
+      font-size: 1.4em;
+      color: var(--primary);
+      font-weight: 700;
+    }
+    .lecture-info {
+      font-size: 1.03em;
+      color: #555;
+      margin-bottom: 22px;
+    }
+    .lecture-resources {
+      margin-bottom: 28px;
+      display: flex;
+      gap: 19px;
+      flex-wrap: wrap;
+    }
+    .resource-chip {
+      background: #eaebfe;
+      color: var(--primary);
+      border-radius: 8px;
+      padding: 7px 17px;
+      font-weight: 500;
+      font-size: 0.99em;
+      box-shadow: 0 2px 6px rgba(0,0,128,0.05);
+      cursor: pointer;
+      transition: background .13s;
+    }
+    .resource-chip:hover {
+      background: #cbe3ff;
+    }
+    .assessment-panel {
+      flex: 1.2;
+      min-width: 260px;
+      margin-top: 2px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+    .quiz-block, .practical-block, .result-block {
+      background: var(--quiz-bg);
+      border-radius: 16px;
+      box-shadow: var(--quiz-shadow);
+      padding: 28px 22px;
+      margin-bottom: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .quiz-question {
+      margin-bottom: 16px;
+      font-size: 1.07em;
+      color: #1550c0;
+      font-weight: 500;
+    }
+    .quiz-options {
+      margin-bottom: 8px;
+    }
+    .quiz-radio {
+      margin-right: 8px;
+    }
+    .quiz-submit {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 7px;
+      padding: 11px 31px;
+      font-size: 1.09em;
+      font-weight: bold;
+      box-shadow: 0 5px 24px rgba(0,0,130,0.10);
+      cursor: pointer;
+      transition: background .18s;
+    }
+    .quiz-submit:hover {
+      background: #2060ff;
+    }
+    .quiz-feedback {
+      background: #e1fad5;
+      color: #116d26;
+      padding: 9px 15px;
+      border-radius: 8px;
+      font-weight: 600;
+      margin-top: 5px;
+      box-shadow: 0 0 8px rgba(0,155,0,.09);
+      display: none;
+      animation: fadeIn .7s ease;
+    }
+    .practical-desc {
+      color: #222;
+      margin-bottom: 9px;
+      font-size: 1.06em;
+    }
+    .github-input-block {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+    .github-link-input {
+      flex: 1;
+      padding: 9px 17px;
+      font-size: 1em;
+      border-radius: 7px;
+      border: 1px solid #d2d9ee;
+      margin-right: 5px;
+      outline-color: var(--primary);
+    }
+    .practical-submit {
+      background: var(--secondary);
+      color: #080;
+      font-weight: bold;
+      border-radius: 6px;
+      padding: 10px 22px;
+      border: none;
+      font-size: 1.04em;
+      cursor: pointer;
+      transition: background .15s;
+    }
+    .practical-submit:hover {
+      background: #aaffec;
+    }
+    .practical-status {
+      margin-top: 10px;
+      color: #178d2c;
+      background: #e6ffe6;
+      padding: 7px 14px;
+      border-radius: 7px;
+      font-weight: 600;
+      display: none;
+    }
+    .result-panel-header {
+      font-size: 1.18em;
+      font-weight: 700;
+      color: #1350d0;
+      margin-bottom: 10px;
+    }
+    .result-score {
+      color: var(--secondary);
+      font-size: 1.38em;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+    .result-label {
+      font-size: 1.04em;
+      color: #333;
+      margin-bottom: 3px;
+    }
+    @media (max-width: 725px) {
+      .container {
+        flex-direction: column;
+        max-width: 98vw;
+        padding: 17px 2vw;
+        gap: 26px;
+      }
+      .assessment-panel { margin-top: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Main Lecture Info -->
+    <div class="lecture-main">
+      <div class="lecture-header">
+        <span class="section-icon">🌐</span>
+        <span class="lecture-title">Web Fundamentals: Developer Environment Setup</span>
+      </div>
+      <div class="lecture-info">
+        Set up your code editor, browser, and starter files. This is the crucial first step for coding success.
+      </div>
+      <div class="lecture-resources">
+        <div class="resource-chip">Lecture PDF</div>
+        <div class="resource-chip">Intro Video</div>
+        <div class="resource-chip">Starter Repo</div>
+      </div>
+    </div>
+    <!-- Assessment / Quiz / Practical Area -->
+    <div class="assessment-panel">
+      <!-- Quiz Block -->
+      <form id="quizForm" class="quiz-block">
+        <h3>Quick Quiz</h3>
+        <div class="quiz-question">1. What is a code editor?</div>
+        <div class="quiz-options">
+          <label><input type="radio" name="q1" class="quiz-radio" value="A">A tool for writing and editing code</label><br>
+          <label><input type="radio" name="q1" class="quiz-radio" value="B">A music player</label><br>
+          <label><input type="radio" name="q1" class="quiz-radio" value="C">A hardware device</label>
+        </div>
+        <div class="quiz-question">2. What does IDE stand for?</div>
+        <div class="quiz-options">
+          <label><input type="radio" name="q2" class="quiz-radio" value="A">Integrated Development Environment</label><br>
+          <label><input type="radio" name="q2" class="quiz-radio" value="B">Internet Download Engine</label><br>
+          <label><input type="radio" name="q2" class="quiz-radio" value="C">Instant Design Editor</label>
+        </div>
+        <button type="button" class="quiz-submit" onclick="submitQuiz()">Submit Quiz</button>
+        <div class="quiz-feedback" id="quizFeedback"></div>
+      </form>
+      <!-- Practical/Project Block -->
+      <form id="practicalForm" class="practical-block">
+        <h3>Practical Assignment</h3>
+        <div class="practical-desc">Push your code for environment setup to your GitHub and paste the repo link below:</div>
+        <div class="github-input-block">
+          <input type="url" class="github-link-input" id="githubLinkInput" placeholder="https://github.com/yourusername/repo"/>
+          <button type="button" class="practical-submit" onclick="submitPractical()">Upload</button>
+        </div>
+        <div class="practical-status" id="practicalStatus"></div>
+      </form>
+      <!-- Results Block (shown after completion) -->
+      <div class="result-block" id="resultBlock" style="display:none;">
+        <div class="result-panel-header">Assessment Result</div>
+        <div class="result-label">Quiz Score:</div>
+        <div class="result-score" id="quizScore"></div>
+        <div class="result-label">Practical Status:</div>
+        <div class="practical-status" id="finalPracticalStatus"></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Dummy quiz answer keys
+    const quizAnswers = {q1: 'A', q2: 'A'};
+    function submitQuiz() {
+      let score = 0;
+      let correct = 0;
+      let total = 2;
+      if(document.querySelector('input[name="q1"]:checked') && document.querySelector('input[name="q1"]:checked').value === quizAnswers.q1) correct++;
+      if(document.querySelector('input[name="q2"]:checked') && document.querySelector('input[name="q2"]:checked').value === quizAnswers.q2) correct++;
+      score = Math.round((correct / total) * 100);
+      document.getElementById('quizFeedback').innerText = `You scored ${score}%.`;
+      document.getElementById('quizFeedback').style.display = 'block';
+      document.getElementById('quizScore').innerText = score + '%';
+      showResultPanel();
+    }
+    function submitPractical() {
+      const link = document.getElementById('githubLinkInput').value;
+      if(link && link.startsWith('https://github.com/')) {
+        document.getElementById('practicalStatus').style.display = 'block';
+        document.getElementById('practicalStatus').innerText = 'GitHub repo submitted ✔️';
+        document.getElementById('finalPracticalStatus').innerText = 'Completed ✔️';
+        showResultPanel();
+      } else {
+        document.getElementById('practicalStatus').style.display = 'block';
+        document.getElementById('practicalStatus').innerText = 'Please provide a valid GitHub link!';
+      }
+    }
+    function showResultPanel() {
+      document.getElementById('resultBlock').style.display = 'flex';
+    }
+  </script>
+</body>
+</html>

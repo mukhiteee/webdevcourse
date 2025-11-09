@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Section Assessment | CodeWithMukhiteee</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body { background: #f8f9fa; font-family: 'Poppins', sans-serif; }
+        .section-wrapper { max-width: 700px; margin: 46px auto; padding: 32px 24px; background: #fff; border-radius: 18px; box-shadow: 0 8px 30px rgba(8,128,8,0.10);}
+        .section-title { font-size: 2rem; font-weight: 700; color: #080; margin-bottom: 8px;}
+        .assessment-type { font-size: 1.1rem; font-weight: 500; color: #00FFD0; margin-bottom: 24px;}
+        .quiz-block, .project-block { margin-bottom: 20px; }
+        .score-block, .pending-block, .feedback-block { margin-top: 20px; padding: 18px; border-radius: 10px; }
+        .score-block { background: #eafff9; color: #080; font-weight: 700;}
+        .pending-block { background: #fffbe6; color: #eeB100;}
+        .feedback-block { background: #f3f8ff; color: #002366;}
+        .btn { display: inline-block; background: #080; color: #fff; padding: 10px 28px; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer; border: none; margin-top: 10px;}
+        .btn:disabled { background: #bbb; cursor: default; }
+        .question { margin-bottom: 12px;}
+    </style>
+</head>
+<body>
+    <div class="section-wrapper" id="assessmentRoot">
+        <!-- Content will be injected here -->
+    </div>
+    <script>
+        // Dummy data (replace with dynamic backend/data logic)
+        const sectionData = {
+            title: "Responsive Design",
+            type: "quiz", // or "project"
+            userHasTaken: false,  // true if already taken/submitted
+            userScore: 4, // for quiz
+            quizOutOf: 5,
+            quizQuestions: [
+                {
+                    question: "What does 'responsive design' mean?",
+                    options: ["Mobile friendly", "Fast loading", "Adjusts to any screen", "Fancy animations"],
+                    answer: 2 // zero-indexed, correct answer
+                },
+                {
+                    question: "Which CSS rule is used for responsiveness?",
+                    options: ["@keyframes", "@media", ":hover", "@responsive"],
+                    answer: 1
+                }
+            ],
+            projectSubmitted: false,
+            projectGraded: false,
+            projectScore: null,
+            projectFeedback: ""
+        };
+
+        // Utility to render the proper assessment content
+        function renderAssessment() {
+            const root = document.getElementById('assessmentRoot');
+            let html = `<div class="section-title">${sectionData.title}</div>`;
+            html += `<div class="assessment-type">Assessment Type: ${sectionData.type === "quiz" ? "Quiz" : "Project"}</div>`;
+
+            if (sectionData.type === "quiz") {
+                if (sectionData.userHasTaken) {
+                    html += `<div class="score-block">You scored ${sectionData.userScore}/${sectionData.quizOutOf} on this quiz. Assessment locked.</div>`;
+                } else {
+                    html += `<form id="quizForm" class="quiz-block">`;
+                    sectionData.quizQuestions.forEach((q, i) => {
+                        html += `<div class="question"><b>Q${i+1}:</b> ${q.question}<br>`;
+                        q.options.forEach((opt, j) => {
+                            html += `<label><input type="radio" name="q${i}" value="${j}" required> ${opt}</label><br>`;
+                        });
+                        html += `</div>`;
+                    });
+                    html += `<button class="btn" type="submit">Submit Quiz</button></form>`;
+                }
+            }
+
+            if (sectionData.type === "project") {
+                if (sectionData.userHasTaken) {
+                    if (sectionData.projectGraded) {
+                        html += `<div class="score-block">Project Score: ${sectionData.projectScore}/10</div>`;
+                        html += `<div class="feedback-block">${sectionData.projectFeedback}</div>`;
+                    } else {
+                        html += `<div class="pending-block">Project submitted. Pending grading by admin.</div>`;
+                    }
+                } else {
+                    html += `<form id="projForm" class="project-block">
+                        <label>Project File/Link:<br><input type="text" name="projLink" required style="width:90%;padding:9px;margin:10px 0"></label><br>
+                        <button class="btn" type="submit">Upload Project</button>
+                    </form>`;
+                }
+            }
+
+            root.innerHTML = html;
+
+            // Form listeners for demo
+            const quizForm = document.getElementById('quizForm');
+            if (quizForm) {
+                quizForm.onsubmit = function (e) {
+                    e.preventDefault();
+                    // Lock quiz after submit (simulate)
+                    sectionData.userHasTaken = true;
+                    // For demo, random score
+                    sectionData.userScore = Math.floor(Math.random()*sectionData.quizOutOf);
+                    renderAssessment();
+                };
+            }
+            const projForm = document.getElementById('projForm');
+            if (projForm) {
+                projForm.onsubmit = function (e) {
+                    e.preventDefault();
+                    sectionData.userHasTaken = true;
+                    sectionData.projectGraded = false;
+                    renderAssessment();
+                };
+            }
+        }
+
+        renderAssessment();
+    </script>
+</body>
+</html>

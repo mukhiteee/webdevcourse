@@ -1,0 +1,192 @@
+body {
+    background: #f8f9fa;
+    font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+    width: 100%;
+}
+
+.main-content {
+    width: 100% ;
+}
+
+.top-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 12px 0;
+    max-width: 600px;
+    margin: 0 auto;
+}
+.breadcrumbs {
+    color: #353353;
+    font-size: 15px;
+}
+.breadcrumbs a {
+    color: #47c959;
+    text-decoration: none;
+    font-weight: 500;
+}
+.breadcrumbs a:hover { text-decoration: underline; }
+.right-panel {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+.user-avatar {
+    background: linear-gradient(135deg,#06d6a0 0%,#00c853 100%);
+    width: 38px;height: 38px;
+    border-radius: 50%;color: #fff;
+    font-weight: bold;
+    display: flex;align-items: center;justify-content: center;
+}
+.logout-btn {
+    background: #e9ecef;
+    border: none;
+    color: #353547;
+    padding: 7px 16px;
+    border-radius: 14px;
+    cursor:pointer;
+    font-weight: 500;
+}
+.logout-btn:hover { background: #caffde; color:#11af2a; }
+
+.lecture-card {
+    max-width: 600px;
+    margin: 24px auto;
+    padding-bottom: 32px;
+}
+.progress-card {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 5px 22px rgba(16,216,118,0.10);
+    padding: 19px 24px;
+    margin-bottom: 15px;
+    border-left: 6px solid #12ce58;
+}
+.lecture-title {
+    font-size: 22px;
+    font-weight: bold;
+    margin: 2px 0 7px;
+    color: #0a4526;
+}
+.progress-bar-container {
+    height: 7px;
+    background: #e7f7ed;
+    border-radius: 4px;
+    margin: 10px 0 10px 0;
+    width: 83%;
+    position: relative;
+}
+.progress-bar {
+    background: linear-gradient(90deg, #09e716 65%, #00c853 100%);
+    height: 100%;
+    border-radius: 4px;
+    transition: width .9s cubic-bezier(.63,.11,.09,1.02);
+}
+.completion-percent {
+    font-size: 14px;
+    font-weight: 600;
+    margin-left: 11px;
+}
+
+.overview-card {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 2px 9px rgba(16,216,118,0.07);
+    padding: 18px 20px;
+    margin: 11px 0 20px;
+}
+.overview-card h3 {
+    color: #00953c;
+    margin-bottom: 6px;
+    font-size: 1.09em;
+    font-weight: bold;
+}
+.overview-card p { color: #30333d; line-height: 1.57; font-size: 1em;}
+
+.cw-green-card {
+    background: #f5fff7;
+    border-radius: 14px;
+    box-shadow: 0 2px 8px rgba(16,216,118,0.06);
+    margin-bottom: 13px;
+    display: flex;
+    gap: 13px;
+    align-items: center;
+    padding: 13px 18px;
+}
+.cw-card-icon {
+    background: #09e716;
+    color: #fff;
+    font-size: 1.35em;
+    width: 44px; height:44px;
+    display:flex;align-items:center;justify-content:center;
+    border-radius: 12px;
+}
+.cw-card-title {
+    font-weight: 600;
+    font-size: 1.08em;
+    color: #117a3b;
+}
+.cw-card-desc {
+    color: #444; font-size: .97em;
+    margin-bottom: 4px;
+}
+.cw-download-btn {
+    display: inline-block;
+    background: #09e716;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 6px 22px;
+    text-decoration: none;
+    margin-top: 8px;
+    font-size: 1.01em;
+    transition: background 0.19s;
+    border: none; cursor:pointer;
+}
+.cw-download-btn:hover { background:#00bd4c; }
+
+.practical-section {
+    background: #fff;
+    padding: 17px 18px;
+    border-radius: 14px;
+    box-shadow: 0 2px 7px rgba(16,216,118,0.07);
+    margin: 13px 0 22px;
+}
+.practical-section h4 { color: #17b546; }
+.github-input {
+    border: 2px solid #caf6df;
+    border-radius: 8px;
+    padding: 9px 13px;
+    width: 92%;
+    margin: 8px 0 0;
+}
+.submission-card {
+    background: #f5fff4;
+    border: 1px solid #11e073;
+    border-radius: 9px;
+    margin-top: 13px;
+    padding: 7px 17px;
+    color: #247d30;
+}
+.submission-link {
+    color: #07ae57;font-weight:600;word-break:break-all;text-decoration:underline;
+}
+
+.quiz-section {
+    background:#fff;
+    border-radius:14px;
+    box-shadow:0 2px 8px rgba(30,216,118,.04);
+    padding:18px 16px;
+    margin:10px 0 22px;
+}
+.quiz-section .cw-download-btn {
+    width: 92%;
+    font-size: 1.06em;
+    margin-top: 9px;
+}
+
+
+
+@media (max-width:680px) {
+    .lecture-card,.top-header { max-width: 96vw; padding-left:3vw;padding-right:3vw;}
+}
