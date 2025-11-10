@@ -161,22 +161,53 @@ while ($section = $sections_res->fetch_assoc()) {
     <?php endif; ?>
 
     <!-- Quiz Section -->
-    <?php
-// Fetch all questions for this lecture
-$q_sql = "SELECT * FROM quiz_questions WHERE lecture_id = $lecture_id";
-$result = $conn->query($q_sql);
-$qno = 1;
+<?php
+$user_id = $_SESSION['user_id'];
+$lecture_id = (int)$_GET['id'];
 
-while ($q = $result->fetch_assoc()) {
-  echo '<div class="quiz-question">';
-  echo "<b>Question $qno:</b> ".htmlspecialchars($q['question'])."</div>";
-  foreach (['A','B','C','D'] as $key) {
-    $col = 'option'.strtolower($key);
-    if (!empty($q[$col])) {
-      echo "<label><input type='radio' name='ans[{$q['id']}]' value='$key'> ".htmlspecialchars($q[$col])."</label><br>";
-    }
-  }
-  $qno++;
+// Total questions in this quiz
+$q_count_res = $conn->query("SELECT COUNT(*) AS total FROM quiz_questions WHERE lecture_id = $lecture_id");
+$q_count = $q_count_res->fetch_assoc()['total'];
+
+// Latest quiz submission for this user/lecture
+$quiz_sub = $conn->query("
+  SELECT id, score FROM quiz_submissions
+  WHERE user_id = $user_id AND lecture_id = $lecture_id
+  ORDER BY id DESC LIMIT 1
+")->fetch_assoc();
+
+if ($quiz_sub) {
+    // Count correct and incorrect answers
+    $ans_summary = $conn->query("
+      SELECT
+        SUM(is_correct=1) AS correct_count,
+        SUM(is_correct=0) AS incorrect_count
+      FROM quiz_answers
+      WHERE submission_id = {$quiz_sub['id']}
+    ")->fetch_assoc();
+    $correct = $ans_summary['correct_count'] ?? 0;
+    $incorrect = $ans_summary['incorrect_count'] ?? 0;
+    ?>
+    <div class="quiz-summary-card" style="background:#eafff2; border-radius:14px;padding:20px;margin:17px 0; cursor:pointer;" onclick="window.location.href='quiz_review.php?lecture_id=<;?= $lecture_id ?>'">
+      <div style="font-weight:600;color:#10b859;font-size:17px;">Quiz Completed!</div>
+      <div style="margin-top:8px; font-size:15px;">Score: <b style="color:#1bba68;"><?= $quiz_sub['score'] ?>%</b></div>
+      <div style="margin-top:6px;">Correct: <span style="color:#19b25b;"><?= $correct ?></span> | Incorrect: <span style="color:#ef5b48;"><?= $incorrect ?></span></div>
+      <div style="margin-top:11px; color:#555;">Click for full stats and explanations</div>
+    </div>
+    <?php
+} else {
+    // Not yet submitted: ready to start
+    ?>
+    <div class="quiz-summary-card" style="background:#f4fff8; border-radius:14px; padding:19px;margin:17px 0; box-shadow:0 2px 7px #cefddb;">
+      <div style="font-weight:600;font-size:16px;color:#219a50;">Quick Quiz</div>
+      <div style="margin:5px 0 10px 0; font-size:14.2px;">Questions: <b><?= $q_count ?></b> • Flexible (No timer)</div>
+      <a href="quiz.php?lecture_id=$lecture['id']"
+        class="cw-download-btn"
+        style="display:inline-block;margin-top:5px;width:120px;text-align:center;background:#10b859;color:#fff;">
+        Take Quiz
+      </a>
+    </div>
+    <?php
 }
 ?>
 </div>
