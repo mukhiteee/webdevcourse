@@ -5,6 +5,10 @@ require_once '../backend/config.php';
 $lecture_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 $user_id = $_SESSION['user_id'];
 
+if (!isset($_GET['id'])) {
+    header ('Location: dashboard.php');
+}
+
 // Fetch lecture & section
 $lecture_sql = "SELECT l.id, l.title as lecture_title, l.description, l.has_practical, s.title as section_title
     FROM lectures l JOIN sections s ON l.section_id = s.id WHERE l.id = $lecture_id";
@@ -138,28 +142,6 @@ while ($section = $sections_res->fetch_assoc()) {
         <?php endwhile; ?>
     </div>
 
-    <!-- Practical Assignment -->
-    <?php if ($lecture1['has_practical']): ?>
-    <div class="practical-section">
-        <h4>Practical Assignment</h4>
-        <p>Create a responsive layout using Flexbox or Grid. Push your code to GitHub and provide your link below.</p>
-        <?php if (!$prac || !$prac['scored']): ?>
-        <form action="submit_practical.php" method="post">
-            <input type="url" name="github_link" placeholder="Paste your GitHub repo link" value="<?= $prac && $prac['github_link'] ? htmlspecialchars($prac['github_link']) : '' ?>" required class="github-input"/>
-            <input type="hidden" name="lecture_id" value="<?= $lecture_id ?>">
-            <button type="submit" class="cw-download-btn" style="margin-top:7px;">Submit Assignment</button>
-        </form>
-        <?php endif; ?>
-        <?php if ($prac): ?>
-        <div class="submission-card">
-            <b>Recent Submission:</b>
-            <a href="<?= htmlspecialchars($prac['github_link']) ?>" class="submission-link"><?= htmlspecialchars($prac['github_link']) ?></a>
-            <?= $prac['scored'] ? "<div>Score: {$prac['score']}</div>" : '<div>Awaiting grading</div>' ?>
-        </div>
-        <?php endif; ?>
-    </div>
-    <?php endif; ?>
-
     <!-- Quiz Section -->
 <?php
 $user_id = $_SESSION['user_id'];
@@ -201,7 +183,7 @@ if ($quiz_sub) {
     <div class="quiz-summary-card" style="background:#f4fff8; border-radius:14px; padding:19px;margin:17px 0; box-shadow:0 2px 7px #cefddb;">
       <div style="font-weight:600;font-size:16px;color:#219a50;">Quick Quiz</div>
       <div style="margin:5px 0 10px 0; font-size:14.2px;">Questions: <b><?= $q_count ?></b> • Flexible (No timer)</div>
-      <a href="quiz.php?lecture_id=$lecture['id']"
+      <a href="quiz.php?lecture_id=<?php echo $lecture_id; ?>"
         class="cw-download-btn"
         style="display:inline-block;margin-top:5px;width:120px;text-align:center;background:#10b859;color:#fff;">
         Take Quiz
@@ -210,6 +192,41 @@ if ($quiz_sub) {
     <?php
 }
 ?>
+
+<?php
+// Practical/project block: assuming $prac comes from something like
+// SELECT github_link, scored, score, feedback FROM practical_submissions WHERE user_id = $user_id AND lecture_id = $lecture_id
+
+if ($lecture1['has_practical']): ?>
+  <div class="practical-section" style="margin-bottom: 40px;">
+    <h4>Practical Assignment</h4>
+    <p>Create a responsive layout using Flexbox or Grid. Push your code to GitHub and provide your link below.</p>
+   
+    <?php if (!$prac || !$prac['scored']): ?>
+      <form action="submit_practical.php" method="post">
+          <input type="url" name="github_link" placeholder="Paste your GitHub repo link"
+                 value="<?= $prac && $prac['github_link'] ? htmlspecialchars($prac['github_link']) : '' ?>" required class="github-input"/>
+          <input type="hidden" name="lecture_id" value="<?= $lecture_id ?>">
+          <button type="submit" class="cw-download-btn" style="margin-top:7px;">Submit Assignment</button>
+      </form>
+    <?php endif; ?>
+
+    <?php if ($prac): ?>
+      <div class="submission-card" style="margin-top:19px;">
+        <b>Recent Submission:</b><br>
+        <a href="<?= htmlspecialchars($prac['github_link']) ?>" class="submission-link"><?= htmlspecialchars($prac['github_link']) ?></a><br>
+        <?= $prac['scored'] ? "<div style='margin-top:6px;'><b>Score:</b> {$prac['score']}/100</div>" : '<div style="margin-top:6px;">Awaiting grading...</div>' ?>
+        <?php if (!empty($prac['feedback'])): ?>
+          <div style="background:#f8fff0;border-left:4px solid #14e150;padding:10px 13px 8px;margin-top:10px;border-radius:7px;color:#1a6f28;font-size:0.97em;">
+            <b>Feedback:</b> <?= nl2br(htmlspecialchars($prac['feedback'])) ?>
+          </div>
+        <?php endif; ?>
+      </div>
+    <?php endif; ?>
+  </div>
+<?php endif; ?>
+
+
 </div>
         </div>
 </body>

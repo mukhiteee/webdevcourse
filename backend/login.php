@@ -33,7 +33,7 @@ if ($stmt->num_rows == 1) {
     }
 } else {
     // echo json_encode(['success' => false, 'message' => 'No user found with that email.']);
-    header('Location: ../index.php?echo=No user found with that email');
+    header('Location: ../index.php?error=No user found with that email');
 }
 $stmt->close();
 $conn->close();

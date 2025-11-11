@@ -1,4 +1,12 @@
-        * {
+error-msg {
+    background-color: #080d;
+    padding: 10px;
+    align-self: center;
+    justify-self: center;
+    text-align: center;
+}
+
+* {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
