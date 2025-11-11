@@ -2,104 +2,148 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>CodeWithMukhiteee – Coming Soon</title>
+  <title>Course HQ – Coming Soon!</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     body {
-      background: linear-gradient(105deg, #f6fff7 70%, #d9fbe7 108%);
-      font-family: 'Poppins', 'Segoe UI', sans-serif;
-      margin: 0;
+      margin: 0; padding: 0;
       min-height: 100vh;
-      color: #113e26;
+      background: linear-gradient(110deg, #fafffe 60%, #e2feee 107%);
+      font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
     }
-    .coming-card {
+    .promo-card {
+      max-width: 399px;
+      width: 95vw;
       background: #fff;
-      border-radius: 22px;
-      box-shadow: 0 6px 32px #1effa022, 0 1px 7px #0fae5742;
-      padding: 30px 16px 28px 16px;
-      max-width: 364px;
-      width: 97vw;
+      border-radius: 24px;
+      box-shadow: 0 6px 30px #1eea8a17, 0 0px 7px #1eea8a34;
+      padding: 33px 16px 22px 16px;
       text-align: center;
+      position: relative;
+      overflow: hidden;
     }
-    .brand-title {
-      font-size: 1.43em;
+    .badge {
+      background: linear-gradient(90deg,#04b159 68%,#23ffa1 95%);
+      color: #fff;
+      font-size: 1.15em;
+      font-weight: 800;
+      letter-spacing: 2px;
+      border-radius: 14px 14px 14px 1px;
+      padding: 8px 23px 7px;
+      display: inline-block;
+      box-shadow: 0 2px 8px #13e56e18;
+      margin-bottom: 20px;
+    }
+    .main-title {
+      font-size: 1.42em;
+      font-weight: 900;
+      color: #075933;
+      display: flex; align-items: center; gap:12px; justify-content: center;
+      letter-spacing: .4px;
+      margin-bottom: 8px;
+      margin-top: 6px;
+    }
+    .emoji {
+      font-size: 1.4em;
+      margin-bottom: -5px;
+    }
+    .hype {
+      color: #10a759;
+      background: #eafdeb;
+      border-radius: 9px;
+      display: inline-block;
+      padding: 1.5px 9px 1.5px 10px;
       font-weight: 700;
-      color: #0fae57;
-      letter-spacing: 1px;
-      margin-bottom: 10px;
-      display: flex; align-items: center; justify-content: center; gap: 9px;
+      margin-bottom: 15px;
+      font-size: 1.13em;
+      margin-top: 7px;
+      letter-spacing: .07em;
     }
-    .major-note {
-      font-size: 1.08em;
-      margin: 15px 0 12px 0;
-      color: #136040;
+    .msg {
+      color: #184d34;
+      font-size: 1.07em;
+      margin: 20px 0 16px 0;
+      line-height: 1.6;
       font-weight: 500;
     }
-    .soon-badge {
-      background: linear-gradient(90deg,#10b859 70%,#34ffb1);
-      color: #fff; font-weight: 800; border-radius: 99px;
-      font-size: 1.1em; padding: 6px 27px 4px 27px; display: inline-block;
-      letter-spacing: .06em;
-    }
-    .coming-link-list {
-      margin: 27px 0 22px;
-      display: flex; flex-direction: column; gap: 16px;
-      align-items: stretch;
+    .coming-links {
+      margin: 25px 0 20px;
+      display: flex; flex-direction: column; gap: 15px; align-items: stretch;
     }
     .coming-link {
-      display:flex; align-items:center; gap:10px;
-      background: #f4fff8;
-      color: #10b859; font-weight: 700; font-size: 1.06em;
-      border-radius: 10px;
-      padding: 12px 12px;
+      display: flex; align-items: center; gap: 10px; justify-content: center;
+      background: #f2fff9;
+      color: #13a05e;
+      font-weight: 700;
+      border-radius: 11px;
+      font-size: 1.05em;
+      padding: 13px 8px 11px;
       text-decoration: none;
-      box-shadow: 0 1px 9px #b0ffc822;
-      transition: box-shadow 0.16s, background 0.12s, color 0.11s;
-      border: 2px solid #defae0;
-      justify-content: center;
+      box-shadow: 0 1px 8px #0bea5e16;
+      border: 2px solid #e1fbe8;
+      transition: box-shadow 0.13s, background 0.17s, color 0.13s;
     }
-    .coming-link:hover {
-      background: #e4fff2;
-      box-shadow: 0 2px 13px #18ba7240;
-      color: #035228;
+    .coming-link:hover,.coming-link:active {
+      background: #caffde;
+      color: #085b2e;
+      box-shadow: 0 2px 15px #13e56e22;
     }
-    .coming-link i {font-size: 1.24em;}
-    .ending-note {
-      color: #657e6b; margin-top: 19px; font-size:.98em;
+    .coming-link i { font-size: 1.14em;}
+    .footer-note {
+      color: #6e8977;
+      font-size: .97em;
+      margin-top: 21px;
+      line-height: 1.52;
+      padding-top: 4px;
+    }
+    .blur-bg {
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      top: -50px; left: -40px;
+      background: radial-gradient(circle at 35% 55%, #50ffe0af 0%, #fff 70%);
+      z-index: 0;
+      filter: blur(14px);
+      opacity: .65;
+    }
+    @media (max-width: 520px) {
+      .promo-card { padding: 17px 4vw 13px 4vw; }
+      .main-title { font-size: 1.18em; }
+      .coming-link { font-size: 1.015em; }
     }
   </style>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-  <div class="coming-card">
-    <div class="brand-title">
-      <i class="fas fa-graduation-cap"></i> CodeWithMukhiteee <span class="soon-badge">COMING SOON</span>
+  <div class="promo-card">
+    <div class="blur-bg"></div>
+    <div class="badge">NEW COHORT DROPPING SOON</div>
+    <div class="main-title">
+      <span class="emoji">🚀</span>
+      Layout Mastery Bootcamp
     </div>
-    <div class="major-note">
-      The platform is not live yet! 🚧<br>
-      We’re still developing features and preparing content for a next-level coding experience.
+    <div class="hype">
+      Get ready to build real, modern web layouts like a pro!
     </div>
-    <div style="margin:14px 0 7px;">
-      <b>What to expect:</b><br>
-      - Project-based web dev lessons<br>
-      - Live coding & weekly challenges<br>
-      - Smart quizzes • Practical GitHub assignments
+    <div class="msg">
+      Registration for this course isn’t open yet.<br>
+      <b>Stay tuned for the launch date – all modules and projects will go live here soon.</b>
     </div>
-    <div style="margin:18px 0 10px 0;font-weight:600;">
-      Stay tuned! Join our official channels for updates, early materials, and project announcements:
+    <div style="margin-bottom:6px; font-size:1em; color:#12735e;">
+      Here’s what you can do in the meantime:
     </div>
-    <div class="coming-link-list">
-      <a href="https://youtube.com/@yourchannel" class="coming-link" target="_blank"><i class="fab fa-youtube"></i> YouTube Channel</a>
-      <a href="https://github.com/yourusername/yourrepo" class="coming-link" target="_blank"><i class="fab fa-github"></i> Practical Samples Repo</a>
-      <a href="https://chat.whatsapp.com/invite/yourgroup" class="coming-link" target="_blank"><i class="fab fa-whatsapp"></i> Join WhatsApp Community</a>
-      <a href="mailto:support@yoursite.com" class="coming-link" target="_blank"><i class="fas fa-envelope"></i> Contact & Updates</a>
-      <!-- Add more links as needed -->
+    <div class="coming-links">
+      <a href="https://youtube.com/@yourchannel" class="coming-link" target="_blank"><i class="fab fa-youtube"></i> Follow on YouTube for sneak peeks & live sessions</a>
+      <a href="https://github.com/yourusername/layout-mastery" class="coming-link" target="_blank"><i class="fab fa-github"></i> Explore the project samples on GitHub</a>
+      <a href="https://chat.whatsapp.com/invite/yourgroup" class="coming-link" target="_blank"><i class="fab fa-whatsapp"></i> Join our WhatsApp group for launch updates</a>
+      <a href="mailto:hello@yourbrand.com" class="coming-link" target="_blank"><i class="fas fa-envelope"></i> Contact us for partnership or questions</a>
     </div>
-    <div class="ending-note">
-      🚀 The course will be announced soon. Get hyped, invite your friends, and get ready to learn!
+    <div class="footer-note">
+      Platform will become public to all registered users on launch day.<br>
+      Don’t miss any updates—join the community and get notified first!
     </div>
   </div>
 </body>
