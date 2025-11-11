@@ -57,16 +57,16 @@
       Use the links below to stay connected and get updates.
     </div>
     <div class="cta-list">
-      <a href="https://youtube.com/@yourchannel" class="cta-link" target="_blank">
+      <a href="https://youtube.com/@codewithmukhiteee?si=nznXm-d5rbwCKOHO" class="cta-link" target="_blank">
         <i class="fab fa-youtube"></i> Subscribe to YouTube Channel
       </a>
       <a href="https://github.com/yourusername/yourrepo" class="cta-link" target="_blank">
         <i class="fab fa-github"></i> View Practicals on GitHub
       </a>
-      <a href="https://chat.whatsapp.com/invite/yourgroup" class="cta-link" target="_blank">
+      <a href="https://chat.whatsapp.com/IMMSpEtci2wFyUsJitLF4f?mode=wwt" class="cta-link" target="_blank">
         <i class="fab fa-whatsapp"></i> Join WhatsApp Community
       </a>
-      <a href="https://wa.me/2348012345678" class="cta-link" target="_blank">
+      <a href="https://wa.me/2349025948400" class="cta-link" target="_blank">
         <i class="fas fa-user-circle"></i> Contact Admin (WhatsApp)
       </a>
     </div>
