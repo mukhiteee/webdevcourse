@@ -1,14 +1,14 @@
 <?php
 
-// define('DB_HOST', 'fdb1034.awardspace.net');
-// define('DB_USER', '4704687_webdevcourse');
-// define('DB_PASS', '@Codewithmukhiteee_WEBDEVCOURSE1');
-// define('DB_NAME', '4704687_webdevcourse');
-
-define('DB_HOST', 'localhost');
-define('DB_USER', 'root');
-define('DB_PASS', '');
+define('DB_HOST', 'db.fr-pari1.bengt.wasmernet.com');
+define('DB_USER', '290c6a97764b80005ea0e33253b5');
+define('DB_PASS', '0691290c-6a97-78c7-8000-452cc05b6161');
 define('DB_NAME', 'webdev');
+
+// define('DB_HOST', 'localhost');
+// define('DB_USER', 'root');
+// define('DB_PASS', '');
+// define('DB_NAME', 'webdev');
 
 $conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
