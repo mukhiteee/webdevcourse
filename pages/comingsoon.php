@@ -2,100 +2,76 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Layout Mastery – Register Now</title>
+  <title>Web Development for Beginners – Coming Soon</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     body {
-      background: linear-gradient(105deg, #fbfff8 55%, #e8faea 105%);
+      background: linear-gradient(110deg,#fafffe 60%,#e2feee 109%);
       font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
-      min-height: 100vh;
-      margin:0; display:flex;justify-content:center;align-items:center;
+      min-height:100vh; margin:0; display:flex;justify-content:center;align-items:center;
     }
-    .card {
-      max-width: 405px; width: 95vw; margin: auto;
-      background: #fff;
-      border-radius: 22px;
-      box-shadow: 0 6px 30px #1eea8a13, 0 1px 7px #11e87c36;
-      padding: 31px 15px 27px 15px;
-      text-align: center;
-      position:relative;
-      overflow:hidden;
+    .clean-card {
+      width:96vw; max-width:400px;
+      background:#fff; border-radius:19px;
+      box-shadow:0 4px 21px #15dfa83a,0 0 7px #10b85922;
+      padding:27px 14px 19px 14px;
+      text-align:center; position:relative; overflow:hidden;
     }
-    .main-brand {
-      font-size:1.42em;
-      font-weight:900;
-      color:#0ea958;
-      display:flex;align-items:center;gap:13px;justify-content:center;
-      letter-spacing:.5px;margin-bottom:6px;margin-top:2px;
+    .main-title {
+      font-size:1.35em;font-weight:800;color:#0cab6f; letter-spacing:.05em;
+      margin-bottom:8px; margin-top:3px;
     }
-    .soon-badge {
-      background:linear-gradient(90deg,#04b159 74%,#19ffc9 98%);
-      color:#fff; font-weight:900; border-radius:16px 16px 4px 16px;
-      font-size:1.03em; padding:8px 19px 7px 17px;letter-spacing:1.7px;
-      margin-bottom:21px;display:inline-block;
+    .status-tag {
+      background:#0cb864; color:#fff; font-weight:800;margin-bottom:16px;
+      border-radius:8px;padding:6px 21px 5px;display:inline-block;font-size:1em;letter-spacing:1px;
     }
-    .caption {
-      color:#273c2b; font-size:1.07em; margin:17px 0 13px 0; font-weight:700;
+    .short-note {
+      font-size:1.08em;color:#155d42;font-weight:600;margin:19px 0 20px 0;
     }
-    .note {
-      background:#effff9;color:#0e7351;
-      font-size:1.085em;font-weight:600;border-radius:10px;padding:8px 11px;margin-bottom:14px;letter-spacing:.08em;
-      border-left:5px solid #0fc884;
-      box-shadow:0 1px 8px #b6ffe823;
-      display:inline-block;
-    }
-    .section-t {
-      color:#198b58;margin:20px 0 11px 0;font-weight:700;font-size:1.08em;
-      letter-spacing:.05em;
-    }
-    .cta-list {
-      display:flex;flex-direction:column;gap:15px;align-items:stretch;margin:16px 0 14px;}
+    .cta-list {display:flex;flex-direction:column;gap:14px;margin:11px 0 16px;}
     .cta-link {
       display:flex;align-items:center;gap:10px;justify-content:center;
-      background:linear-gradient(90deg,#edfff7 80%,#dfffee 100%);
-      color:#13a05e;font-weight:700;width:100%;
-      border-radius:11px;
-      font-size:1.06em;
-      text-decoration:none;
-      padding:13px 6px 10px;
-      box-shadow:0 1px 8px #0bea5e08;
-      border:2px solid #e9fbe9;
-      transition:box-shadow 0.13s,background 0.17s,color 0.13s;
+      background:#f4fff8;color:#10c25d;font-weight:700;
+      border-radius:9px;font-size:1.06em;padding:12px 5px 10px;
+      text-decoration:none;border:2px solid #dffbe3; box-shadow:0 1px 8px #0bea5e07;
+      transition: box-shadow .13s, background .15s, color .13s;
     }
-    .cta-link:hover {background:#baffea;color:#085b2e;box-shadow:0 2px 15px #13e56e1b;}
-    .cta-link i {font-size:1.12em;}
-    .footer {
-      color:#63896a;font-size:.98em;margin-top:17px;line-height:1.43;
-      padding-top:6px;
+    .cta-link:hover{background:#cbffe9;color:#045c30;box-shadow:0 2px 15px #0abe6a24;}
+    .cta-link i {font-size:1.15em;}
+    .post-note {
+      margin-top:15px;color:#198a4a;font-size:1.1em;font-weight:600;
+      background:#e7fff0;border-radius:8px;padding:7px 9px 6px 9px;letter-spacing:.04em;
     }
-    .whatsapp-link { color: #0fae57 !important; font-weight: bold;}
+    @media (max-width: 480px) {
+      .clean-card { padding:14px 2vw 12px 2vw;}
+    }
   </style>
 </head>
 <body>
-  <div class="card">
-    <div class="main-brand">
-      <i class="fas fa-rocket"></i> Layout Mastery Bootcamp
+  <div class="clean-card">
+    <div class="main-title"><i class="fas fa-graduation-cap"></i> Web Development for Beginners</div>
+    <div class="status-tag">Platform Launching Soon</div>
+    <div class="short-note">
+      The platform will be fully functional when the course starts.<br>
+      Use the links below to stay connected and get updates.
     </div>
-    <div class="soon-badge">Course Starts Soon</div>
-    <div class="caption">
-      Registration is <span style="color:#07be59;font-weight:800;">OPEN</span>!<br>Platform will be fully active on launch.
-    </div>
-    <div class="note">
-      <span style="font-size:1em;">Platform preview is live.<br>
-      Dive in, connect, and be the first to get course access!</span>
-    </div>
-    <div class="section-t">Stay Plugged In:</div>
     <div class="cta-list">
-      <a href="https://youtube.com/@yourchannel" class="cta-link" target="_blank"><i class="fab fa-youtube"></i> YouTube Channel – Tutorials & Replays</a>
-      <a href="https://github.com/yourusername/layout-projects" class="cta-link" target="_blank"><i class="fab fa-github"></i> GitHub – All Practicals & Mini Projects</a>
-      <a href="https://chat.whatsapp.com/invite/yourgroup" class="cta-link" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp Group – Official Community</a>
-      <a href="https://wa.me/2348012345678" class="cta-link whatsapp-link" target="_blank"><i class="fas fa-user-circle"></i> Contact Admin (WhatsApp)</a>
+      <a href="https://youtube.com/@yourchannel" class="cta-link" target="_blank">
+        <i class="fab fa-youtube"></i> Subscribe to YouTube Channel
+      </a>
+      <a href="https://github.com/yourusername/yourrepo" class="cta-link" target="_blank">
+        <i class="fab fa-github"></i> View Practicals on GitHub
+      </a>
+      <a href="https://chat.whatsapp.com/invite/yourgroup" class="cta-link" target="_blank">
+        <i class="fab fa-whatsapp"></i> Join WhatsApp Community
+      </a>
+      <a href="https://wa.me/2348012345678" class="cta-link" target="_blank">
+        <i class="fas fa-user-circle"></i> Contact Admin (WhatsApp)
+      </a>
     </div>
-    <div class="footer">
-      All tutorial vids drop on <b>YouTube</b>, all mini-projects land on <b>GitHub</b>.<br>
-      Course chat and news: join the WhatsApp group.<br>
-      Got questions or want to recommend content? DM the admin anytime!
+    <div class="post-note">
+      Join the WhatsApp community to stay updated – don’t miss the launch!
     </div>
   </div>
 </body>
