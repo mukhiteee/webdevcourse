@@ -4,7 +4,7 @@ header('Content-Type: application/json');
 require_once 'config.php';
 
 if (isset($_SESSION['user_id'])) {
-    header('Location: ../pages/dashboard.php');
+    header('Location: ../pages/comingsoon.php');
     exit();
 }
 
@@ -27,7 +27,7 @@ if ($stmt->num_rows == 1) {
     if (password_verify($password, $hashed)) {
         $_SESSION['user_id'] = $id;
         $_SESSION['name'] = $name;
-        header('Location: ../pages/dashboard.php');
+        header('Location: ../pages/comingsoon.php');
     } else {
         echo json_encode(['success' => false, 'message' => 'Incorrect password.']);
     }
