@@ -7,14 +7,14 @@ $db_user = "290c6a97764b80005ea0e33253b5";
 $db_pass = "0691290c-6a97-78c7-8000-452cc05b6161"; // Use the password provided exactly as is
 
 
-$db_host = "localhost";
-$db_name = "webdev";
-$db_user = "root";
-$db_pass = "";
+// $db_host = "localhost";
+// $db_name = "webdev";
+// $db_user = "root";
+// $db_pass = "";
 // Attempt to establish a connection using the mysqli object-oriented method
 // The mysqli constructor takes the following parameters:
 // host, username, password, dbname, port
-$conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
+$conn = new mysqli($db_host, $db_user, $db_pass, $db_name, $db_portl);
 
 // Check the connection status immediately
 if ($conn->connect_error) {
