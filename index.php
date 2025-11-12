@@ -1,6 +1,10 @@
 <?php
 session_start();
 require_once 'backend/config.php';
+
+if (isset($_SESSION['user_id'])) {
+    header ('Location: pages/comingsoon.php');
+}
 ?>
 
 <!DOCTYPE html>
@@ -8,8 +12,20 @@ require_once 'backend/config.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Code With Mukhiteee | Web Development</title>
+    <title>Web Development For Beginners | Code With Mukhiteee</title>
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" href="" type="image/png">
+<meta name="description" content="Learn web development from scratch. Join our beginner-friendly course, get hands-on tutorials, and connect with a vibrant learning community. Platform launching soon!">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Web Development for Beginners">
+<meta name="twitter:description" content="Learn web development from scratch. Join our beginner-friendly course, get hands-on tutorials, and connect with a vibrant learning community. Platform launching soon!">
+<meta name="twitter:image" content="https://yourdomain.com/banner.png">
+
+<meta property="og:title" content="Web Development for Beginners">
+<meta property="og:description" content="Learn web development from scratch. Join our beginner-friendly course, get hands-on tutorials, and connect with a vibrant learning community. Platform launching soon!">
+<meta property="og:image" content="https://yourdomain.com/banner.png">
+<meta property="og:url" content="https://yourdomain.com/">
+<meta property="og:type" content="website">
 </head>
 <body>
         <div class="logo">Code <span>With</span> Mukhiteee</div>
