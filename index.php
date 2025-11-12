@@ -14,17 +14,20 @@ if (isset($_SESSION['user_id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web Development For Beginners | Code With Mukhiteee</title>
     <link rel="stylesheet" href="styles/main.css">
-    <link rel="icon" href="" type="image/png">
-<meta name="description" content="Learn web development from scratch. Join our beginner-friendly course, get hands-on tutorials, and connect with a vibrant learning community. Platform launching soon!">
+    <link rel="icon" href="assets/images/icon.png" type="image/png">
+    <link rel="apple-touch-icon" href="assets/images/icon.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#10b859">
+<meta name="description" content="Learn web development from scratch. Join our beginner-friendly course, get hands-on tutorials, and connect with a vibrant learning community.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Web Development for Beginners">
-<meta name="twitter:description" content="Learn web development from scratch. Join our beginner-friendly course, get hands-on tutorials, and connect with a vibrant learning community. Platform launching soon!">
-<meta name="twitter:image" content="https://yourdomain.com/banner.png">
+<meta name="twitter:description" content="Learn web development from scratch. Join our beginner-friendly course, get hands-on tutorials, and connect with a vibrant learning community.">
+<meta name="twitter:image" content="https://webdev.wasmer.app/assets/images/banner.png">
 
 <meta property="og:title" content="Web Development for Beginners">
-<meta property="og:description" content="Learn web development from scratch. Join our beginner-friendly course, get hands-on tutorials, and connect with a vibrant learning community. Platform launching soon!">
-<meta property="og:image" content="https://yourdomain.com/banner.png">
-<meta property="og:url" content="https://yourdomain.com/">
+<meta property="og:description" content="Learn web development from scratch. Join our beginner-friendly course, get hands-on tutorials, and connect with a vibrant learning community.">
+<meta property="og:image" content="https://webdev.wasmer.app/assets/images/banner.png">
+<meta property="og:url" content="https://webdev.wasmer.app">
 <meta property="og:type" content="website">
 </head>
 <body>
@@ -36,19 +39,30 @@ if (isset($_SESSION['user_id'])) {
             <button class="tab active" data-tab="login">Login</button>
             <button class="tab" data-tab="signup">Sign Up</button>
             <div class="tab-indicator" id="indicator"></div>
-        </div>
-        <?php
-        if (isset($_GET['error'])) {
-            echo '<div class="error-msg" style="
+        </div><?php
+if (isset($_GET['error'])) {
+    echo '<div class="error-msg" style="
     background-color: #8003;
     padding: 10px 30px;
     border-radius: 10px;
     align-self: center;
     margin-bottom: 15px;
     justify-self: center;
-    text-align: center;">Invalid email or password.</div>';
-        }
-        ?>
+    text-align: center;
+    ">' . htmlspecialchars($_GET['error']) . '</div>';
+}
+if (isset($_GET['success'])) {
+    echo '<div class="success-msg" style="
+    background-color: #0803;
+    padding: 10px 30px;
+    border-radius: 10px;
+    align-self: center;
+    margin-bottom: 15px;
+    justify-self: center;
+    text-align: center;
+    ">' . htmlspecialchars($_GET['success']) . '</div>';
+}
+?>
         <div class="form-container">
             <form class="form active" id="loginForm" action="backend/login.php" method="POST">
                 <div class="form-group">
@@ -59,7 +73,7 @@ if (isset($_SESSION['user_id'])) {
                     <label for="loginPassword">Password</label>
                     <input type="password" id="loginPassword" name="password" placeholder="Enter your password" required>
                 </div>
-                <a href="../pages/forgot_password.php" style="color: #10b859; font-weight: 600; text-decoration: none; text-align: right;">Forgot Password</a>
+                <a href="pages/forgot_password.php" style="color: #10b859; font-weight: 600; text-decoration: none; text-align: right;">Forgot Password</a>
                 <button type="submit" class="cta-button">Login</button>
                 <div class="switch-link">
                     Don't have an account? <a id="switchToSignup">Sign Up</a>
@@ -79,6 +93,10 @@ if (isset($_SESSION['user_id'])) {
                     <label for="signupPassword">Password</label>
                     <input type="password" name="password" id="signupPassword" placeholder="Create a strong password" required>
                 </div>
+                <div class="form-group">
+                    <label for="signupConfirm">Confirm Password</label>
+                    <input type="password" name="confirm" id="signupConfirm" placeholder="Repeat Password" required>
+                </div>
                 <button type="submit" class="cta-button">Sign Up</button>
                 <div class="switch-link">
                     Already have an account? <a id="switchToLogin">Login</a>
@@ -86,6 +104,11 @@ if (isset($_SESSION['user_id'])) {
             </form>
         </div>
     </div>
+    
+    <!-- Floating WhatsApp Button -->
+    <a class="float-contact" href="https://wa.me/2349025948400" target="_blank" title="Contact">
+      <i class="fab fa-whatsapp"></i> Contact
+    </a>
     <script src="scripts/main.js"></script>
 </body>
 </html>

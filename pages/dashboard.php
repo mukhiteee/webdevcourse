@@ -417,7 +417,7 @@ function shareResults(){
 }
 </script>
 
-<script src="../scripts/main.js"></script>
+<script src="../scripts/dashboard.js"></script>
 <script>
 function toggleAccordion(btn) {
     btn.classList.toggle('active');

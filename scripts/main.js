@@ -1,27 +1,27 @@
-    // Confirm password live check for signup form
-    document.addEventListener('DOMContentLoaded', function() {
-    const signupForm = document.getElementById('signupForm');
-    const passInput = document.getElementById('signupPassword');
-    const confirmInput = document.getElementById('signupConfirm');
+//     // Confirm password live check for signup form
+//     document.addEventListener('DOMContentLoaded', function() {
+//     const signupForm = document.getElementById('signupForm');
+//     const passInput = document.getElementById('signupPassword');
+//     const confirmInput = document.getElementById('signupConfirm');
 
-    // Prevent submit if passwords do not match
-    signupForm.addEventListener('submit', function(e) {
-        if (passInput.value !== confirmInput.value) {
-            confirmInput.setCustomValidity("Passwords do not match!");
-            confirmInput.reportValidity();
-            e.preventDefault();
-        } else {
-            confirmInput.setCustomValidity("");
-        }
-    });
+//     // Prevent submit if passwords do not match
+//     signupForm.addEventListener('submit', function(e) {
+//         if (passInput.value !== confirmInput.value) {
+//             confirmInput.setCustomValidity("Passwords do not match!");
+//             confirmInput.reportValidity();
+//             e.preventDefault();
+//         } else {
+//             confirmInput.setCustomValidity("");
+//         }
+//     });
 
-    // As user types, clear error
-    confirmInput.addEventListener('input', function() {
-        if (passInput.value === confirmInput.value) {
-            confirmInput.setCustomValidity("");
-        }
-    });
-});
+//     // As user types, clear error
+//     confirmInput.addEventListener('input', function() {
+//         if (passInput.value === confirmInput.value) {
+//             confirmInput.setCustomValidity("");
+//         }
+//     });
+// });
 
         const tabs = document.querySelectorAll('.tab');
         const forms = document.querySelectorAll('.form');

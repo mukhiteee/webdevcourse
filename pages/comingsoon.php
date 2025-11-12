@@ -6,6 +6,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="../styles/comingsoon.css">
+    <link rel="icon" href="../assets/images/icon.png" type="image/png">
+    <link rel="apple-touch-icon" href="../assets/images/icon.png">
+    <link rel="manifest" href="../manifest.json">
+    <meta name="theme-color" content="#10b859">
+<meta name="description" content="Learn web development from scratch. Join our beginner-friendly course, get hands-on tutorials, and connect with a vibrant learning community.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Web Development for Beginners">
+<meta name="twitter:description" content="Learn web development from scratch. Join our beginner-friendly course, get hands-on tutorials, and connect with a vibrant learning community.">
+<meta name="twitter:image" content="https://webdev.wasmer.app/assets/images/banner.png">
+
+<meta property="og:title" content="Web Development for Beginners">
+<meta property="og:description" content="Learn web development from scratch. Join our beginner-friendly course, get hands-on tutorials, and connect with a vibrant learning community.">
+<meta property="og:image" content="https://webdev.wasmer.app/assets/images/banner.png">
+<meta property="og:url" content="https://webdev.wasmer.app">
+<meta property="og:type" content="website">
 </head>
 <body>
   <div class="clean-card">

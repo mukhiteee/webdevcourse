@@ -1,6 +1,5 @@
 <?php
 session_start();
-header('Content-Type: application/json');
 require_once 'config.php';
 
 if (isset($_SESSION['user_id'])) {
@@ -12,7 +11,7 @@ $email = trim($_POST['email'] ?? '');
 $password = $_POST['password'] ?? '';
 
 if (!$email || !$password) {
-    echo json_encode(['success' => false, 'message' => 'All fields required.']);
+    header('Location: ../index.php?error=All fields required');
     exit();
 }
 
@@ -29,7 +28,7 @@ if ($stmt->num_rows == 1) {
         $_SESSION['name'] = $name;
         header('Location: ../pages/comingsoon.php');
     } else {
-        echo json_encode(['success' => false, 'message' => 'Incorrect password.']);
+    header('Location: ../index.php?error=Incorrect Password');
     }
 } else {
     // echo json_encode(['success' => false, 'message' => 'No user found with that email.']);
