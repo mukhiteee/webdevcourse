@@ -13,11 +13,11 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Web Development for Beginners">
 <meta name="twitter:description" content="Learn web development from scratch. Join our beginner-friendly course, get hands-on tutorials, and connect with a vibrant learning community.">
-<meta name="twitter:image" content="assets/images/banner.jpg">
+<meta name="twitter:image" content="https://webdev.wasmer.app/assets/images/banner.jpg">
 
 <meta property="og:title" content="Web Development for Beginners">
 <meta property="og:description" content="Learn web development from scratch. Join our beginner-friendly course, get hands-on tutorials, and connect with a vibrant learning community.">
-<meta property="og:image" content="assets/images/banner.jpg">
+<meta property="og:image" content="https://webdev.wasmer.app/assets/images/banner.jpg">
 <meta property="og:url" content="https://webdev.wasmer.app">
 <meta property="og:type" content="website">
 </head>
@@ -73,9 +73,22 @@
             </form>
         </div>
     </div>
-    
+    <br>
     <!-- Floating WhatsApp Button -->
-    <a class="float-contact" href="https://wa.me/2349025948400" target="_blank" title="Contact">
+    <a class="float-contact" style="
+.float-contact {
+      position: fixed; right: 20px; bottom: 23px; background:#25d366;
+      color:#fff; font-weight:700; z-index:2000; padding:15px;
+      border-radius:60px; box-shadow:0 3px 20px #0d7d383a;
+      font-size:27px; display:flex; align-items:center; gap:12px;
+      text-decoration:none; transition:background .13s;
+      border:2.2px solid #fff
+    }
+    .float-contact:hover{background:#21b75c; color:#fff;}
+    @media (max-width: 600px) {
+      .float-contact {font-size:22px; padding:12px 14px;}
+    }
+    " href="https://wa.me/2349025948400" target="_blank" title="Contact">
       <i class="fab fa-whatsapp"></i> Contact
     </a>
     <script src="scripts/main.js"></script>

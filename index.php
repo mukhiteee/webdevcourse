@@ -12,7 +12,7 @@ if (isset($_SESSION['user_id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Development For Beginners | Code With Mukhiteee</title>up
+    <title>Web Development For Beginners | Code With Mukhiteee</title>
     <link rel="stylesheet" href="styles/main.css">
     <link rel="icon" href="assets/images/icon.png" type="image/png">
     <link rel="apple-touch-icon" href="assets/images/icon.png">
@@ -104,9 +104,23 @@ if (isset($_GET['success'])) {
             </form>
         </div>
     </div>
-    
+    <br>
     <!-- Floating WhatsApp Button -->
-    <a class="float-contact" href="https://wa.me/2349025948400" target="_blank" title="Contact">
+    <a class="float-contact" style="
+    
+.float-contact {
+      position: fixed; right: 20px; bottom: 23px; background:#25d366;
+      color:#fff; font-weight:700; z-index:2000; padding:15px;
+      border-radius:60px; box-shadow:0 3px 20px #0d7d383a;
+      font-size:27px; display:flex; align-items:center; gap:12px;
+      text-decoration:none; transition:background .13s;
+      border:2.2px solid #fff
+    }
+    .float-contact:hover{background:#21b75c; color:#fff;}
+    @media (max-width: 600px) {
+      .float-contact {font-size:22px; padding:12px 14px;}
+    }"
+     href="https://wa.me/2349025948400" target="_blank" title="Contact">
       <i class="fab fa-whatsapp"></i> Contact
     </a>
     <script src="scripts/main.js"></script>
