@@ -12,7 +12,7 @@ if (isset($_SESSION['user_id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Development For Beginners | Code With Mukhiteee</title>
+    <title>Web Development For Beginners | Code With Mukhiteee</title>up
     <link rel="stylesheet" href="styles/main.css">
     <link rel="icon" href="assets/images/icon.png" type="image/png">
     <link rel="apple-touch-icon" href="assets/images/icon.png">
@@ -22,11 +22,11 @@ if (isset($_SESSION['user_id'])) {
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Web Development for Beginners">
 <meta name="twitter:description" content="Learn web development from scratch. Join our beginner-friendly course, get hands-on tutorials, and connect with a vibrant learning community.">
-<meta name="twitter:image" content="https://webdev.wasmer.app/assets/images/banner.png">
+<meta name="twitter:image" content="https://webdev.wasmer.app/assets/images/banner.jpg">
 
 <meta property="og:title" content="Web Development for Beginners">
 <meta property="og:description" content="Learn web development from scratch. Join our beginner-friendly course, get hands-on tutorials, and connect with a vibrant learning community.">
-<meta property="og:image" content="https://webdev.wasmer.app/assets/images/banner.png">
+<meta property="og:image" content="https://webdev.wasmer.app/assets/images/banner.jpg">
 <meta property="og:url" content="https://webdev.wasmer.app">
 <meta property="og:type" content="website">
 </head>
