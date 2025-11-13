@@ -34,7 +34,7 @@
       <a href="https://youtube.com/@codewithmukhiteee?si=nznXm-d5rbwCKOHO" class="cta-link" target="_blank">
         <i class="fab fa-youtube"></i> Subscribe to YouTube Channel
       </a>
-      <a href="https://github.com/yourusername/yourrepo" class="cta-link" target="_blank">
+      <a href="https://github.com/mukhiteee/Web-Development-For-Beginners.git" class="cta-link" target="_blank">
         <i class="fab fa-github"></i> View Practicals on GitHub
       </a>
       <a href="https://chat.whatsapp.com/IMMSpEtci2wFyUsJitLF4f?mode=wwt" class="cta-link" target="_blank">
