@@ -8,7 +8,7 @@ $db_pass = "0691290c-6a97-78c7-8000-452cc05b6161"; // Use the password provided 
 
 
 //$db_host = "localhost";
-//$db_name = "webdev";
+//$db_name = "webdev2";
 //$db_user = "root";
 //$db_pass = "";
 // Attempt to establish a connection using the mysqli object-oriented method

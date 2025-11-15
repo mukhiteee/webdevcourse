@@ -1,0 +1,25 @@
+body {margin:0; background:#f4fff9; font-family:'Poppins',sans-serif; color:#233e27;}
+.mainbox {max-width:1150px;margin:45px auto 0 auto;padding:22px 14px;}
+.um-head {font-size:2.16em;font-weight:900;color:#10b859;margin-bottom:15px;display:flex;align-items:center;gap:11px;}
+.user-table {width:100%;border-collapse:collapse;box-shadow:0 3px 18px #10b85918;border-radius:12px;overflow:hidden;background:#fff;}
+.user-table th,.user-table td {padding:14px 13px;text-align:left;}
+.user-table th {background:#ecfff2;color:#108c43;font-weight:700;}
+.user-table tbody tr:nth-child(even){background:#f6fffa;}
+.user-table td {font-size:1.01em;color:#214d35;}
+.user-actions {display:flex;gap:6px;}
+.umform input[type=text], .umform input[type=email], .umform input[type=password], .umform input[type=datetime-local] {
+  padding:7px 8px; border-radius:8px; border:1px solid #bffdd0; font-size:1em; width:95%; background:#f9fffd;
+}
+.umform input[type=password] {font-family:sans-serif;}
+.umform button, .add-user-form button {
+  background:#10b859;color:#fff;font-weight:700;border:none;border-radius:7px;padding:8px 14px;cursor:pointer;transition:.14s;
+}
+.umform button:hover, .add-user-form button:hover {background:#1b7e44;}
+.add-user-form {margin-top:34px;background:#fff;padding:17px 14px 13px 14px;border-radius:11px;border:1.8px solid #10b85946;max-width:780px;}
+.add-user-form h4{margin-top:0;color:#10b859;}
+.add-user-form input{margin-right:12px;margin-bottom:8px;}
+@media(max-width:700px){
+  .mainbox {padding:6px;}
+  .add-user-form {max-width:100%;}
+  .user-table th,.user-table td {padding:7px 5px;font-size:.97em;}
+}

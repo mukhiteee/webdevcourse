@@ -5,6 +5,7 @@ if (!($_SESSION['admin_logged_in'] ?? false)) {
     header('Location: index.php');
     exit;
 }
+$admin_username = ($_SESSION['admin_username']);
 
 // TOTALS
 $userCount = $conn->query("SELECT COUNT(*) FROM users")->fetch_row()[0] ?? 0;
@@ -63,8 +64,8 @@ while ($row = $r->fetch_assoc()) $students[] = $row;
     </div>
     <nav class="nav-menu">
       <a class="nav-item active"><span class="nav-icon"><i class="fa fa-chart-bar"></i></span> <span>Dashboard</span></a>
-      <a class="nav-item"><span class="nav-icon"><i class="fa fa-users"></i></span> <span>Students</span></a>
-      <a class="nav-item"><span class="nav-icon"><i class="fa fa-book"></i></span> <span>Courses</span></a>
+      <a class="nav-item"><span class="nav-icon"><i class="fa fa-users"></i></span> <span>Users</span></a>
+      <a class="nav-item"><span class="nav-icon"><i class="fa fa-book"></i></span> <span>Lectures</span></a>
       <a class="nav-item"><span class="nav-icon"><i class="fa fa-question"></i></span> <span>Quizzes</span></a>
       <a class="nav-item"><span class="nav-icon"><i class="fa fa-project-diagram"></i></span> <span>Projects</span></a>
       <a class="nav-item"><span class="nav-icon"><i class="fa fa-bell"></i></span> <span>Notifications</span></a>
@@ -74,7 +75,7 @@ while ($row = $r->fetch_assoc()) $students[] = $row;
   </aside>
   <!-- Main Content -->
   <main class="main-content">
-    <h1 class="welcome-title">Welcome back, Admin!</h1>
+    <h1 class="welcome-title">Welcome back, <?php echo $admin_username ?>!</h1>
     <p class="welcome-subtitle">Here’s what's happening with your platform today</p>
     <!-- Stats -->
     
@@ -113,9 +114,13 @@ while ($row = $r->fetch_assoc()) $students[] = $row;
     <div class="activity-time"><?= date('M j, H:i', strtotime($a['act_time'])) ?></div>
     <div class="activity-text">
       <?php
-        if ($a['type'] == 'user' && $a['actor']) echo "New registration: <b>" . htmlspecialchars($a['actor']) . "</b>";
-        elseif ($a['type'] == 'quiz') echo "Quiz submitted";
-        elseif ($a['type'] == 'practical') echo "Practical submitted";
+        if (($a['type'] ?? '') == 'user' && !empty($a['actor'] ?? null)) {
+    echo "New registration: <b>" . htmlspecialchars($a['actor']) . "</b>";
+} elseif (($a['type'] ?? '') == 'quiz') {
+    echo "Quiz submitted";
+} elseif (($a['type'] ?? '') == 'practical') {
+    echo "Practical submitted";
+}
       ?>
     </div>
   </div>
