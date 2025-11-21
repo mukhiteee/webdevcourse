@@ -2,6 +2,10 @@
 session_start();
 require_once '../backend/config.php';
 
+if (!isset($_SESSION['user_id'])) {
+    header('Location: ../index.php');
+    exit();
+}
 $user_id = $_SESSION['user_id'] ?? 0;
 
 if (!isset($_GET['id'])) {

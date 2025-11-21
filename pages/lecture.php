@@ -45,6 +45,8 @@ $name = $_SESSION['name'] ?? 'M';
     <link rel="stylesheet" href="../styles/dashboard.css">
 </head>
 <body>
+  
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">☰</button>
         <!-- Sidebar -->
         <aside class="sidebar" id="sidebar">
             <div class="logo-section">
@@ -235,4 +237,5 @@ if ($lecture1['has_practical']): ?>
 </div>
         </div>
 </body>
+<script src="../scripts/dashboard.js"></script>
 </html>

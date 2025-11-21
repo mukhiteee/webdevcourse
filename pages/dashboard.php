@@ -1,15 +1,15 @@
 <?php
+
 session_start();
 require_once '../backend/config.php';
 
 if (!isset($_SESSION['user_id'])) {
-    header('Location: ../index.html');
+    header('Location: ../index.php');
     exit();
 }
 
 $user_id = $_SESSION['user_id'];
 $name = $_SESSION['name'];
-
 
 // Quizzes completed
 $q = $conn->query("SELECT COUNT(*) AS completed FROM quiz_submissions WHERE user_id=$user_id");
@@ -31,18 +31,10 @@ $proj_total = $p->fetch_assoc()['total'] ?? 0;
 $s = $conn->query("SELECT AVG(score) AS avg_score FROM quiz_submissions WHERE user_id=$user_id");
 $avg_score = round($s->fetch_assoc()['avg_score'] ?? 0);
 
-// Progress (simplified)
-$stmt = $conn->query("SELECT COUNT(*) AS total FROM lectures");
-$total_sections = $stmt->fetch_assoc()['total'];
-$stmt = $conn->query("SELECT COUNT(DISTINCT lecture_id) AS done FROM (
-    SELECT lecture_id FROM quiz_submissions WHERE user_id=$user_id
-    UNION
-    SELECT lecture_id FROM practical_submissions WHERE user_id=$user_id
-) AS all_done");
-$done_sections = $stmt->fetch_assoc()['done'];
-$progress = $total_sections > 0 ? intval(($done_sections/$total_sections)*100) : 0;
+$totalLectures = $conn->query("SELECT COUNT(*) FROM lectures")->fetch_row()[0];
+$completedQuizzes = $conn->query("SELECT COUNT(DISTINCT lecture_id) FROM quiz_submissions WHERE user_id = $user_id")->fetch_row()[0];
+$progress = round(($completedQuizzes / $totalLectures) * 100) ?? 0;
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -96,11 +88,11 @@ while ($section = $sections_res->fetch_assoc()) {
     $lectures_res = $conn->query($lectures_sql);
 
     echo '<div class="module">';
-    echo '  <div class="module-header">';
+    echo '  <div class="module-header" id="header">';
     echo '    <span>' . $icon . ' ' . htmlspecialchars($section['title']) . '</span>';
-    echo '    <span class="module-icon">▶</span>';
+    echo '    <span class="chevron">▶</span>';
     echo '  </div>';
-    echo '  <div class="module-sections">';
+    echo '  <div class="module-sections" id="sections">';
     $sectionIndex = 0;
     while ($lecture = $lectures_res->fetch_assoc()) {
         echo '    <a href="lecture.php?id=' .(int)$lecture['id'].'" style="text-decoration: none; color: white;" class="section-item" data-module="' . $moduleIndex . '" data-section="' . $sectionIndex . '">' .
@@ -207,10 +199,10 @@ while ($section = $sections_res->fetch_assoc()) {
                 <div class="progress-section">
                     <div class="progress-header">
                         <h3 class="progress-label">Course Completion Progress</h3>
-                        <span class="progress-percentage" id="overallProgress">0%</span>
+                        <span class="progress-percentage" id="overallProgress"><?php echo $progress ?>%</span>
                     </div>
                     <div class="progress-bar-container">
-                        <div class="progress-bar" id="progressBar" style="width: 0%"></div>
+                        <div class="progress-bar" id="progressBar" style="width: <?php echo $progress ?>%"></div>
                     </div>
                 </div>
 
@@ -233,7 +225,7 @@ while ($section = $sections_res->fetch_assoc()) {
 </div>
                 </div>
 
-                <!-- Full Results Card with Download as PDF & Image -->
+                <!-- Full Results Card with Download as PDF & Image
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
@@ -320,8 +312,8 @@ while ($section = $sections_res->fetch_assoc()) {
     <span>Share your result 💥</span>
     <button onclick="shareResults()" class="crc-share-btn"><i class="fas fa-share-alt"></i> Share</button>
   </div>
-</div>
-
+</div> -->
+<!-- 
 <style>
 .crazy-result-card {
   background: linear-gradient(100deg,#fff,#e7fff3 78%,#cbffe3 100%);
@@ -415,7 +407,9 @@ function shareResults(){
     alert('Share is not supported on your device. Try downloading as PDF/image or screenshot!');
   }
 }
-</script>
+</script> -->
+
+
 
 <script src="../scripts/dashboard.js"></script>
 <script>
@@ -428,4 +422,19 @@ function toggleAccordion(btn) {
         panel.style.display = "block";
     }
 }
+
+
+        // Update Analytics with Animation
+        function updateAnalytics() {
+            const overallProgress = <?php echo $progress ?>
+            
+                console.log(overallProgress);
+
+            // Animate progress bar
+            setTimeout(() => {
+                document.getElementById('progressBar').style.width = overallProgress + '%';
+                animateNumber('overallProgress', 0, overallProgress, 1500, '%');
+            }, 300);
+        }
+
 </script>

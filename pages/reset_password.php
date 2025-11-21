@@ -175,7 +175,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['token'], $_POST['new_
     }
 
     .float-contact {
-      position: fixed; right: 20px; bottom: 23px; background:#25d366;
+      position: fixed; right: 20px; bottom: 23px; background: #080;
       color:#fff; font-weight:700; z-index:2000; padding:15px;
       border-radius:60px; box-shadow:0 3px 20px #0d7d383a;
       font-size:27px; display:flex; align-items:center; gap:12px;

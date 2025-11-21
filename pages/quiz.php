@@ -2,6 +2,11 @@
 session_start();
 require_once '../backend/config.php';
 
+if (!isset($_SESSION['user_id'])) {
+    header('Location: ../index.php');
+    exit();
+}
+
 $user_id = $_SESSION['user_id'] ?? 0;
 $lecture_id = isset($_GET['lecture_id']) ? intval($_GET['lecture_id']) : 0;
 

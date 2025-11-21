@@ -3,7 +3,7 @@ session_start();
 require_once 'config.php';
 
 if (isset($_SESSION['user_id'])) {
-    header('Location: ../pages/comingsoon.php');
+    header('Location: ../pages/dashboard.php');
     exit();
 }
 
