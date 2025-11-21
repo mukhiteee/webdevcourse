@@ -26,7 +26,7 @@ if ($stmt->num_rows == 1) {
     if (password_verify($password, $hashed)) {
         $_SESSION['user_id'] = $id;
         $_SESSION['name'] = $name;
-        header('Location: ../pages/comingsoon.php');
+        header('Location: ../pages/dashboard.php');
     } else {
     header('Location: ../index.php?error=Incorrect Password');
     }
